@@ -63,7 +63,7 @@ if (typeof window === 'object') {
           // Use _srcObject as a private property for this shim
           this._srcObject = stream;
           // TODO: revokeObjectUrl(this.src) when !stream to release resources?
-          this.src = URL.createObjectURL(stream);
+          this.src = stream;
         }
       }
     });
@@ -459,7 +459,7 @@ if (typeof window === 'undefined' || !window.navigator) {
     if (webrtcDetectedVersion >= 43) {
       element.srcObject = stream;
     } else if (typeof element.src !== 'undefined') {
-      element.src = URL.createObjectURL(stream);
+      element.src = stream;
     } else {
       webrtcUtils.log('Error attaching stream to element.');
     }
